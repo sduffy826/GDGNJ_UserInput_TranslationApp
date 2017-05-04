@@ -33,7 +33,7 @@ public class ColorsActivity extends AppCompatActivity {
 
         // We now create the custom adapter that has our words, required since the array is array
         // of two dimensional objects having english/miwok words
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
 
         // Get list view object and add our custom adapter to it
         ListView lv = (ListView) findViewById(R.id.list);
