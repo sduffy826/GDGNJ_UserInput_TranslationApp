@@ -13,21 +13,37 @@
         android:layout_height="@dimen/list_item_height"/>
 
     <LinearLayout
-        android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
-        android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_miwok_word"
-            style="@style/translationTextForeign"
-            tools:text="lutti"/>
+        <LinearLayout
+            android:id="@+id/text_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
 
-        <TextView
-            android:id="@+id/text_default_word"
-            style="@style/translationTextDefault"
-            tools:text="one"/>
+            <TextView
+                android:id="@+id/text_miwok_word"
+                style="@style/translationTextForeign"
+                tools:text="lutti"/>
+
+            <TextView
+                android:id="@+id/text_default_word"
+                style="@style/translationTextDefault"
+                tools:text="one"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/play_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="16dp"
+            android:src="@drawable/ic_play_arrow_white_24dp"/>
 
     </LinearLayout>
 </LinearLayout>

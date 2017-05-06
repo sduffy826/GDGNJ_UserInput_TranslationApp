@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -66,6 +67,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         TextView miwokView = (TextView) listItemView.findViewById(R.id.text_miwok_word);
         miwokView.setText(currWord.getMiwokWord());
+
+        ImageView iconImageView = (ImageView) listItemView.findViewById(R.id.play_icon);
+        iconImageView.setBackgroundColor(color);
 
         return listItemView;
     }
