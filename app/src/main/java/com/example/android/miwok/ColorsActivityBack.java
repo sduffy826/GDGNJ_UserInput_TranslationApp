@@ -1,38 +1,37 @@
 
 package com.example.android.miwok;
 
-import android.content.DialogInterface;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+public class ColorsActivityBack extends AppCompatActivity {
     ArrayList<Word> words;
+    private MediaPlayer mMediaPlayer;
 
-    private AppHelper appHelper;
+    private MediaPlayer.OnCompletionListener mCompletionListener =
+            new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    clearMediaPlayer();
+                }
+            };
 
     @Override
-    // When app stops then tell appHelper
     protected void onStop() {
         super.onStop();
-        appHelper.clear();
+        clearMediaPlayer();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-
-        // Get the appHelper object, it has common code for this app
-        appHelper = new AppHelper(this);
 
         // We create the array list where each cell contains a word object, that object has
         // the english and miwok translation.
@@ -59,8 +58,25 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Word word = (Word) adapterView.getItemAtPosition(i);
-                appHelper.playIt(word.getAudioId());
+                clearMediaPlayer();
+                mMediaPlayer = MediaPlayer.create(ColorsActivityBack.this,
+                        word.getAudioId());
+                mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+    }
+
+    /**
+     * Helper method to release the mMediaPlayer object
+     */
+    private void clearMediaPlayer() {
+        if (mMediaPlayer != null) {
+            if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private int backGroundColor;
+
     public WordAdapter(Activity context, ArrayList<Word> theList, int theColor) {
         super(context, 0, theList);
         backGroundColor = theColor;
@@ -60,10 +61,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         textLinearLayout.setBackgroundColor(color);
 
         // Set the text views for the default word and the miwok word
-        TextView defaultView = (TextView) listItemView.findViewById(R.id.text1);
+        TextView defaultView = (TextView) listItemView.findViewById(R.id.text_default_word);
         defaultView.setText(currWord.getDefaultWord());
 
-        TextView miwokView = (TextView) listItemView.findViewById(R.id.text2);
+        TextView miwokView = (TextView) listItemView.findViewById(R.id.text_miwok_word);
         miwokView.setText(currWord.getMiwokWord());
 
         return listItemView;

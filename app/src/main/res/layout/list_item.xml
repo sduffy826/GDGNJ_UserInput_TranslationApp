@@ -20,15 +20,14 @@
         android:paddingLeft="16dp">
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/text_miwok_word"
             style="@style/translationTextForeign"
-            android:text="hi mom"
             tools:text="lutti"/>
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/text_default_word"
             style="@style/translationTextDefault"
-            android:text="foo bar"
             tools:text="one"/>
+
     </LinearLayout>
 </LinearLayout>
