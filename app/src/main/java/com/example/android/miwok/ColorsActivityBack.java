@@ -10,6 +10,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * This is an unused class, I left in the project so you could see the code before I used the
+ * AppHelper class, it's good just for reference :)
+ */
 public class ColorsActivityBack extends AppCompatActivity {
     ArrayList<Word> words;
     private MediaPlayer mMediaPlayer;

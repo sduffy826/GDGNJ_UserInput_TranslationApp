@@ -22,32 +22,49 @@
     android:orientation="vertical"
     tools:context="com.example.android.miwok.MainActivity">
 
-    <TextView
-        android:id="@+id/numbers"
-        style="@style/CategoryStyle"
-        android:background="@color/category_numbers"
-        android:text="@string/category_numbers"
-        android:tag="NumbersActivity"/>
+    <!-- We use framelayout to set the background color, that way our textview
+         can animate the push action when the user clicks -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/category_numbers">
+        <TextView
+            android:id="@+id/numbers"
+            style="@style/CategoryStyle"
+            android:tag="NumbersActivity"
+            android:text="@string/category_numbers"/>
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/family"
-        style="@style/CategoryStyle"
-        android:background="@color/category_family"
-        android:text="@string/category_family"
-        android:tag="FamilyActivity"/>/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/category_family">
+        <TextView
+            android:id="@+id/family"
+            style="@style/CategoryStyle"
+            android:tag="FamilyActivity"
+            android:text="@string/category_family"/>/>
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/colors"
-        style="@style/CategoryStyle"
-        android:background="@color/category_colors"
-        android:text="@string/category_colors"
-        android:tag="ColorActivity"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/category_colors">
+        <TextView
+            android:id="@+id/colors"
+            style="@style/CategoryStyle"
+            android:tag="ColorActivity"
+            android:text="@string/category_colors"/>
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/phrases"
-        style="@style/CategoryStyle"
-        android:background="@color/category_phrases"
-        android:text="@string/category_phrases"
-        android:tag="PhraseActivity"/>
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/category_phrases">
+        <TextView
+            android:id="@+id/phrases"
+            style="@style/CategoryStyle"
+            android:tag="PhraseActivity"
+            android:text="@string/category_phrases"/>
+    </FrameLayout>
 </LinearLayout>

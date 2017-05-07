@@ -16,14 +16,21 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * This class handles the Numbers activity, use this one to refer too, the logic in the other
+ * activities (Colors, Family and Phrases) is almost identical so I didn't replicate the comments
+ * here into those classes.
+ */
 public class NumbersActivity extends AppCompatActivity {
     ArrayList<Word> words;
-    private MediaPlayer mMediaPlayer;
+
+    // AppHelper has common code for application, it handles playing audio (and managing it)
     private AppHelper appHelper;
 
     @Override
     protected void onStop() {
         super.onStop();
+        // Call the helper method to clear media resources
         appHelper.clear();
     }
 
@@ -32,7 +39,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        // Get app helper object
+        // Get app helper object, we pass in our context
         appHelper = new AppHelper(this);
 
         // We create the array list where each cell contains a word object, that object has
@@ -57,10 +64,13 @@ public class NumbersActivity extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.list);
         lv.setAdapter(adapter);
 
+        // Set the click listener to handle playing the audio file for the word selected
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // Get the word the user clicked
                 Word word = (Word) adapterView.getItemAtPosition(i);
+                // Call helper method to play it; it also handles cleanup
                 appHelper.playIt(word.getAudioId());
             }
         });

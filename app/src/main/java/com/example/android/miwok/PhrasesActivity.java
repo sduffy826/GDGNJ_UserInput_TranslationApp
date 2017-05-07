@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * This handle the Phrases activity, if want to see comments look at the NumbersActivity file,
+ * the logic is almost identical
+ */
 public class PhrasesActivity extends AppCompatActivity {
     ArrayList<Word> words;
 

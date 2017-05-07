@@ -22,6 +22,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+/**
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
+        // Set the on click listener for each view to point to the associated class
         setListener(R.id.numbers, NumbersActivity.class);
 
         setListener(R.id.colors, ColorsActivity.class);
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         setListener(R.id.phrases, PhrasesActivity.class);
     }
 
+    // Little helper method to set the on click listener, pass in the resource id of the view
+    // you want to set it on, and the class component for that intent
     private void setListener(int viewId, final Class<? extends Activity> theClass) {
         View vw = (View) findViewById(viewId);
         vw.setOnClickListener(new View.OnClickListener() {
